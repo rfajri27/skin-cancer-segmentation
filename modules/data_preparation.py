@@ -1,6 +1,17 @@
+import pandas as pd
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from sklearn.model_selection import train_test_split
 
-def train_generator(data_frame, batch_size, aug_dict,
+def load_dataset(path):
+    df = pd.read_csv(path)
+    return df
+
+def split_dataset(df):
+    df_train, df_test = train_test_split(df, test_size=0.15)
+    df_train, df_val = train_test_split(df_train, test_size=0.15)
+    return df_train, df_val, df_test
+
+def image_data_generator(data_frame, batch_size, aug_dict,
         image_color_mode="rgb",
         mask_color_mode="grayscale",
         image_save_prefix="image",
