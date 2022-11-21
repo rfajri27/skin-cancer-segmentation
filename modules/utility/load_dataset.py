@@ -4,10 +4,9 @@ import zipfile
 import io
 import path
 
-DATASET_URL = "https://drive.google.com/file/d/1E5P7Wt-2I40eb4qhKL3zjwB_LfnYtWkW/view?usp=share_link"
+DATASET_URL = "https://drive.google.com/file/d/1Bn9slyX_5qYLUgwxDPxJ7iwwzaKE6Tap/view?usp=share_link"
 
 def get_dataset():
-    # os.mkdir("data")
     with urllib.request.urlopen(DATASET_URL) as dl_file:
         with open(path.ROOT_PATH, 'wb') as out_file:
             out_file.write(dl_file.read())
