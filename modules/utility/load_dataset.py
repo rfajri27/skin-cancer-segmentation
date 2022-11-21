@@ -11,7 +11,7 @@ def get_dataset():
         with open(path.ROOT_PATH, 'wb') as out_file:
             out_file.write(dl_file.read())
     z = zipfile.ZipFile(os.path.join(path.ROOT_PATH, 'data.zip'))
-    z.extractall(path="data")
+    z.extractall()
     z.close()
 
 if __name__ == '__main__':
